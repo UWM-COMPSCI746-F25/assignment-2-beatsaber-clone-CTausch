@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://drf72ynwgny3g"]
+
+[ext_resource type="Script" uid="uid://itpiijhpkukr" path="res://Scripts/spawnable_cube.gd" id="1_flmtt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xw4r8"]
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_flmtt")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_xw4r8")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]

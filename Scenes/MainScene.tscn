@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm5sdkwvg44g6"]
+
+[ext_resource type="Script" uid="uid://7bfe2idjj055" path="res://Scripts/XRInitialization.gd" id="1_7rqgy"]
+[ext_resource type="PackedScene" uid="uid://cnwp7ndjr4s8y" path="res://Resources/Quest2Controllers/OculusQuest2TouchController_Left.gltf" id="1_nhkr4"]
+[ext_resource type="PackedScene" uid="uid://bc8lh0rihgxvi" path="res://Resources/Quest2Controllers/OculusQuest2TouchController_Right.gltf" id="2_7rqgy"]
+[ext_resource type="Script" uid="uid://dsw3xvpswqfjc" path="res://Scripts/SaberControl.gd" id="2_q68mp"]
+[ext_resource type="Material" uid="uid://ctxqsn6bjneg2" path="res://Materials/black.tres" id="3_qxria"]
+[ext_resource type="Script" uid="uid://b0cavdo8dnaa1" path="res://Scripts/LineRenderer.gd" id="3_y4jh7"]
+[ext_resource type="Material" uid="uid://me7queh0xc3a" path="res://Materials/leftSaber.tres" id="4_0iob3"]
+[ext_resource type="Script" uid="uid://co4dcgr3bjw4a" path="res://Scripts/cube_spawner.gd" id="6_y4jh7"]
+[ext_resource type="Material" uid="uid://vusqghytot4w" path="res://Materials/rightSaber.tres" id="7_4b75m"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_q68mp"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_f140w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhkr4"]
+size = Vector3(100, 0.1, 100)
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_7rqgy")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2616, 0)
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+script = ExtResource("2_q68mp")
+
+[node name="OculusQuest2TouchController_Left" parent="XROrigin3D/LeftHand" instance=ExtResource("1_nhkr4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Saber" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+material_override = ExtResource("4_0iob3")
+mesh = SubResource("ImmediateMesh_q68mp")
+script = ExtResource("3_y4jh7")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+script = ExtResource("2_q68mp")
+
+[node name="OculusQuest2TouchController_Right" parent="XROrigin3D/RightHand" instance=ExtResource("2_7rqgy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Saber" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+material_override = ExtResource("7_4b75m")
+mesh = SubResource("ImmediateMesh_f140w")
+script = ExtResource("3_y4jh7")
+
+[node name="RigidBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+material_override = ExtResource("3_qxria")
+size = Vector3(100, 0.1, 100)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_nhkr4")
+
+[node name="CubeSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -20)
+script = ExtResource("6_y4jh7")
+
+[node name="Timer" type="Timer" parent="CubeSpawner"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.480193, 0.877163, 0, -0.877163, 0.480193, 0, 6.21762, 0)
+
+[connection signal="button_pressed" from="XROrigin3D/LeftHand" to="CubeSpawner" method="_on_left_hand_button_pressed"]
+[connection signal="timeout" from="CubeSpawner/Timer" to="CubeSpawner" method="_on_timer_timeout"]
