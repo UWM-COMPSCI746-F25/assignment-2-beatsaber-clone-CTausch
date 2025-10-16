@@ -26,6 +26,15 @@ func _on_timer_timeout() -> void:
 			instance.left = true
 		else:
 			instance.left = false
+		var randDir = randf()
+		if randDir > 0.75:
+			instance.sliceDir = "UP"
+		elif randDir > 0.5 && randDir <= 0.75:
+			instance.sliceDir = "RIGHT"
+		elif randDir > 0.25 && randDir <= 0.5:
+			instance.sliceDir = "DOWN"
+		else:
+			instance.sliceDir = "LEFT"
 		add_child(instance)
 	else: 
 		$Timer.stop()

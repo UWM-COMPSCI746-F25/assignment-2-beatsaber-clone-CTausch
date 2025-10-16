@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://drf72ynwgny3g"]
+[gd_scene load_steps=4 format=3 uid="uid://drf72ynwgny3g"]
 
 [ext_resource type="Script" uid="uid://itpiijhpkukr" path="res://Scripts/spawnable_cube.gd" id="1_flmtt"]
+[ext_resource type="Texture2D" uid="uid://bmf84mwxxlopw" path="res://Resources/arrow.png" id="2_hvkc5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xw4r8"]
 
@@ -13,3 +14,9 @@ script = ExtResource("1_flmtt")
 shape = SubResource("BoxShape3D_xw4r8")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0.51)
+centered = false
+offset = Vector2(-147, -119)
+texture = ExtResource("2_hvkc5")
