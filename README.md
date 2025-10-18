@@ -9,12 +9,15 @@ In this assignment, you will be implementing Beat Saber's core mechanics. You ca
 
 You should fill out this information before submitting your assignment.  Make sure to document the name and source of any third party assets such as 3D models, textures, or any other content used that was not solely written by you.  Include sufficient detail for the instructor or TA to easily find them, such as a download link.
 
+## NOTE: PRESS B ON THE LEFT CONTROLLER TO BEGIN THE BEATSABER EXPERIENCE
 Name: Cole Tauscher
 
 UWM Email: tausch22@uwm.edu
 
-Third Party Assets:
-
+Third Party Assets: 
+  Song used: Chronoxia by DJ Totoriott
+  Cube break sound effect: Finger snap with reverb by ShidenBeatsMusic https://pixabay.com/sound-effects/sound-effects-finger-snap-with-reverb-113861/
+  
 ## Getting Started
 
 Clone the assignment using GitHub Classroom. Links to some resources will be available on the Canvas assignment page.
