@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm5sdkwvg44g6"]
+[gd_scene load_steps=15 format=3 uid="uid://dm5sdkwvg44g6"]
 
 [ext_resource type="Script" uid="uid://7bfe2idjj055" path="res://Scripts/XRInitialization.gd" id="1_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://cnwp7ndjr4s8y" path="res://Resources/Quest2Controllers/OculusQuest2TouchController_Left.gltf" id="1_nhkr4"]
@@ -9,6 +9,8 @@
 [ext_resource type="Material" uid="uid://me7queh0xc3a" path="res://Materials/leftSaber.tres" id="4_0iob3"]
 [ext_resource type="Script" uid="uid://co4dcgr3bjw4a" path="res://Scripts/cube_spawner.gd" id="6_y4jh7"]
 [ext_resource type="Material" uid="uid://vusqghytot4w" path="res://Materials/rightSaber.tres" id="7_4b75m"]
+[ext_resource type="AudioStream" uid="uid://dl30uoxw0ahop" path="res://Resources/sound-effects-finger-snap-with-reverb-113861.mp3" id="10_4b75m"]
+[ext_resource type="AudioStream" uid="uid://bgn3mslgnabi" path="res://Resources/chronoxia.mp3" id="11_8ju71"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_q68mp"]
 
@@ -70,6 +72,16 @@ transform = Transform3D(1, 0, 0, 0, 0.480193, 0.877163, 0, -0.877163, 0.480193, 
 [node name="Path" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41403, 0)
 size = Vector3(1, 1, 200)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_4b75m")
+volume_db = 5.943
+
+[node name="Song" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_8ju71")
+volume_db = -5.622
 
 [connection signal="pose_recentered" from="." to="." method="_on_pose_recentered"]
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/LeftHand" method="_on_button_pressed"]

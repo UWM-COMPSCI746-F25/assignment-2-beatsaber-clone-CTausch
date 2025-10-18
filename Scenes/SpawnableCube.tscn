@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmf84mwxxlopw" path="res://Resources/arrow.png" id="2_hvkc5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xw4r8"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_flmtt")
@@ -14,9 +15,10 @@ script = ExtResource("1_flmtt")
 shape = SubResource("BoxShape3D_xw4r8")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0.51)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0.251233)
 centered = false
 offset = Vector2(-147, -119)
 texture = ExtResource("2_hvkc5")

@@ -48,21 +48,29 @@ func handleCollision(result: Object) -> void:
 	if result.name == 'Area3D' && name == 'LeftHand' && result.get_parent().left == true:
 		if result.get_parent().sliceDir == "LEFT" && velocity.x < 0 && (velocity.abs().x > velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 		if result.get_parent().sliceDir == "RIGHT" && velocity.x > 0 && (velocity.abs().x > velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 		if result.get_parent().sliceDir == "UP" && velocity.y > 0 && (velocity.abs().x < velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 		if result.get_parent().sliceDir == "DOWN" && velocity.y < 0 && (velocity.abs().x < velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 	elif result.name == 'Area3D' && name == 'RightHand' && result.get_parent().left == false:
 		if result.get_parent().sliceDir == "LEFT" && velocity.x < 0 && (velocity.abs().x > velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 		if result.get_parent().sliceDir == "RIGHT" && velocity.x > 0 && (velocity.abs().x > velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 		if result.get_parent().sliceDir == "UP" && velocity.y > 0 && (velocity.abs().x < velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 		if result.get_parent().sliceDir == "DOWN" && velocity.y < 0 && (velocity.abs().x < velocity.abs().y):
 			result.get_parent().queue_free()
+			%AudioStreamPlayer.play()
 
 func _on_left_hand_button_pressed(inputName: String) -> void:
 	print(name)
