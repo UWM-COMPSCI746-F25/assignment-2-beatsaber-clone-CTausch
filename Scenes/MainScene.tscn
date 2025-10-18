@@ -81,7 +81,7 @@ volume_db = 5.943
 [node name="Song" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_8ju71")
-volume_db = -5.622
+volume_db = -11.244
 
 [connection signal="pose_recentered" from="." to="." method="_on_pose_recentered"]
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/LeftHand" method="_on_button_pressed"]

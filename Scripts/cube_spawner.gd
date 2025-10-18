@@ -3,7 +3,7 @@ extends Node3D
 @export var timeInterval = 2.0
 @export var totalCubes = 10
 @export var cubeSpeed = 3
-@onready var spawnableCube = load("res://Scenes/SpawnableCube.tscn")
+var spawnableCube = preload("res://Scenes/SpawnableCube.tscn")
 @export var started = false
 #@export var timerArray = [0.0, 10.2, 11.1]
 var timerIndex = 0
